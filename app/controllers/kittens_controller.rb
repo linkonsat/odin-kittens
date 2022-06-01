@@ -7,8 +7,8 @@ class KittensController < ApplicationController
 
     end
 
-    def new
-
+    def new 
+        @kitten = Kitten.new
     end
 
     def edit
@@ -21,5 +21,9 @@ class KittensController < ApplicationController
 
     def update 
 
+    end
+
+    def kitten_params 
+        params.require(:kitten).permit(:name, :age, :cuteness, :softness)
     end
 end
